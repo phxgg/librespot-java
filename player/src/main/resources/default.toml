@@ -6,12 +6,13 @@ preferredLocale = "en" ### Preferred locale ###
 logLevel = "TRACE" ### Log level (OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL) ###
 
 [auth] ### Authentication ###
-strategy = "ZEROCONF" # Strategy (USER_PASS, ZEROCONF, BLOB, FACEBOOK, STORED)
+strategy = "ACCESS_TOKEN" # Strategy (USER_PASS, ACCESS_TOKEN, ZEROCONF, BLOB, FACEBOOK, STORED)
 username = "" # Spotify username (BLOB, USER_PASS only)
 password = "" # Spotify password (USER_PASS only)
 blob = "" # Spotify authentication blob Base64-encoded (BLOB only)
 storeCredentials = false # Whether to store reusable credentials on disk (not a plain password)
 credentialsFile = "credentials.json" # Credentials file (JSON)
+accessToken = "" # Spotify access token (ACCESS_TOKEN only)
 
 [zeroconf] ### Zeroconf ###
 listenPort = -1 # Listen on this TCP port (`-1` for random)

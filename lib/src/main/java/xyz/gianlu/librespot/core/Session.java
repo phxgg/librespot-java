@@ -1043,6 +1043,20 @@ public final class Session implements Closeable {
         }
 
         /**
+         * Authenticates with a stored OAuth token.
+         *
+         * @param token The OAuth token
+         */
+        @NotNull
+        public Builder accessToken(@NotNull String token) {
+            loginCredentials = Authentication.LoginCredentials.newBuilder()
+                    .setTyp(Authentication.AuthenticationType.AUTHENTICATION_SPOTIFY_TOKEN)
+                    .setAuthData(ByteString.copyFromUtf8(token))
+                    .build();
+            return this;
+        }
+
+        /**
          * Creates a connected and fully authenticated {@link Session} object.
          */
         @NotNull

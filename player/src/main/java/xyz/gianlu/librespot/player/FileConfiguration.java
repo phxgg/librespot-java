@@ -306,6 +306,11 @@ public final class FileConfiguration {
     }
 
     @NotNull
+    private String authAccessToken() {
+        return config.get("auth.accessToken");
+    }
+
+    @NotNull
     private String authPassword() {
         return config.get("auth.password");
     }
@@ -399,6 +404,9 @@ public final class FileConfiguration {
             case USER_PASS:
                 builder.userPass(authUsername(), authPassword());
                 break;
+            case ACCESS_TOKEN:
+                builder.accessToken(authAccessToken());
+                break;
             case STORED:
                 builder.stored();
                 break;
@@ -458,7 +466,7 @@ public final class FileConfiguration {
     }
 
     public enum AuthStrategy {
-        FACEBOOK, BLOB, USER_PASS, ZEROCONF, STORED
+        FACEBOOK, BLOB, USER_PASS, ZEROCONF, STORED, ACCESS_TOKEN
     }
 
     private final static class PropertiesFormat implements ConfigFormat<Config> {
