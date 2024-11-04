@@ -410,6 +410,9 @@ public final class FileConfiguration {
             case STORED:
                 builder.stored();
                 break;
+            case OAUTH:
+                builder.oauth();
+                break;
             case ZEROCONF:
             default:
                 throw new IllegalArgumentException(authStrategy().name());
@@ -466,7 +469,7 @@ public final class FileConfiguration {
     }
 
     public enum AuthStrategy {
-        FACEBOOK, BLOB, USER_PASS, ZEROCONF, STORED, ACCESS_TOKEN
+        FACEBOOK, BLOB, USER_PASS, ZEROCONF, STORED, ACCESS_TOKEN, OAUTH
     }
 
     private final static class PropertiesFormat implements ConfigFormat<Config> {
